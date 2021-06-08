@@ -248,6 +248,4 @@ DB = [
     },
 ]
 
-
-def query_db(addres: str) -> Address:
-    pass
+DB = [Address(**a) for a in DB]
