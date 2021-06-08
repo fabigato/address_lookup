@@ -10,12 +10,17 @@ class Address(BaseModel):
     """ schema for address objects """
     lon: float
     lat: float
-    number: int
+    number: Optional[str]
     street: str
     city: str
     district: str
     region: str
     postcode: str
+
+
+def address_text(address: Address) -> str:
+    """ a concat repr of the whole address for easy match """
+    return f"{address.street} {address.number} {address.postcode} {address.district} {address.city} {address.region}"
 
 
 def csv2json(path: str, sample: Optional[float] = 0.1) -> List[Address]:
