@@ -1,15 +1,16 @@
-""" main script """
-from http import HTTPStatus
+""" blueprint for endpoints """
 from typing import Tuple, Any
 
-from flask import Flask, jsonify
+from http import HTTPStatus
+from flask import Blueprint, jsonify
 
-from search import query_db
-
-app = Flask(__name__)
+from .search import query_db
 
 
-@app.route("/address/<string:address>", methods=["GET"])
+blueprint = Blueprint("address search", __name__)
+
+
+@blueprint.route("/address/<string:address>", methods=["GET"])
 def get_address(address: str) -> Tuple[Any, int]:
     """
     Lookup addresses
@@ -46,7 +47,3 @@ def get_address(address: str) -> Tuple[Any, int]:
     if result is None:
         return {"address": "Not found"}, HTTPStatus.NOT_FOUND
     return jsonify(result.dict()), HTTPStatus.OK
-
-
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", threaded=False, processes=4)

@@ -1,5 +1,5 @@
 """ db interface """
-from util import Address
+from .util import Address
 
 DB = [
     {

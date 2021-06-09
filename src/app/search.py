@@ -5,8 +5,8 @@ from typing import Optional
 
 from unidecode import unidecode
 
-from util import Address, address_text
-from db import DB
+from .util import Address, address_text
+from .db import DB
 
 
 def query_db(addres: str) -> Optional[Address]:
