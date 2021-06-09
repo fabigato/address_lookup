@@ -2,3 +2,4 @@ deepdiff==5.5.0
 flask==2.0.1
 pandas==1.2.4
 pydantic==1.8.2
+Unidecode==1.2.0
