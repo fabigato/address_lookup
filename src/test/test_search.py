@@ -2,8 +2,8 @@ from deepdiff import DeepDiff  # type: ignore
 
 from unittest import TestCase
 
-from util import Address
-from search import query_db
+from app.util import Address
+from app.search import query_db
 
 
 class TestSearch(TestCase):
